@@ -1,22 +1,39 @@
-import {Card} from "react-bootstrap"
-import {Button} from "react-bootstrap"
-import style from "./Card.module.css"
+import { Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Progress } from "reactstrap";
+import { Link } from "react-router-dom";
 
-const card = () => {
-    return (
-        <div className = {style.card1}>
-            <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="Rectangle 7.svg" />
-  <Card.Body>
-    <Card.Title>The Strength of a People. Power of Community</Card.Title>
-    <Card.Text>
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    </Card.Text>
-    <Button variant="primary">Go somewhere</Button>
-  </Card.Body>
-</Card>
-        </div>        
-    )
-}
+const card = (props) => {
+  return (
+    <div>
+      <Card style={{ width: "18rem" }}>
+        <Card.Img variant="top" src={props.Img} />
+        <Card.Body>
+          <Card.Title> {props.Title}</Card.Title>
+          <Card.Text>{props.Paragraph}</Card.Text>
+          <Progress color="danger" value={40} />
+          <Card.Text>{props.Text}</Card.Text>
+          <Button variant="danger">
+            <Link
+              to={{
+                pathname: `/detail/${props.id}`,
+                state: {
+                  Img: props.Img,
+                  Title: props.Title,
+                  Paragraph: props.Paragraph,
+                  Text: props.Text,
+                },
+              }}
+            >
+              {" "}
+              Donate{" "}
+            </Link>
+          </Button>
+        </Card.Body>
+      </Card>
+    </div>
+  );
+};
 
-export default card
+export default card;

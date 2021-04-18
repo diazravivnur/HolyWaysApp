@@ -1,16 +1,28 @@
-import "./styles/global.css"
+import React, { useState, Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import "./styles/global.css";
 import Navbar from "./components/Navbar";
-import Information1 from "./components/Information1";
-import Information2 from "./components/Information2";
-import Card from "./components/Card"
+import Home from "./pages/Home";
+import RaiseFund from "./pages/RaiseFund";
+import FormFund from "./pages/FormFund";
+import Profile from "./pages/Profile";
+import DetailDonate from "./components/DetailDonate";
+
 function App() {
   return (
-    <>
-      <Navbar />
-      <Information1 />
-      <Information2 />
-      <Card />
-    </>
+    <div>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/RaiseFund" component={RaiseFund} />
+          <Route exact path="/FormFund" component={FormFund} />
+          <Route exact path="/Profile" component={Profile} />
+          <Route exact path="/detail/:id" component={DetailDonate} />
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
