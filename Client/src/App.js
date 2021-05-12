@@ -12,40 +12,7 @@ import Profile from "./pages/Profile";
 import DetailDonate from "./components/DetailDonate";
 import PrivateRoute from "./components/PrivateRoute";
 
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
-}
-
 function App() {
-  const [, dispatch] = useContext(UserContext);
-
-  const checkUser = async () => {
-    try {
-      const response = await API.get("/check-auth");
-
-      if (response.status === 404) {
-        return dispatch({
-          type: "AUTH_ERROR",
-        });
-      }
-
-      let payload = response.data.data.user;
-      payload.token = localStorage.token;
-
-      dispatch({
-        type: "AUTH_SUCCESS",
-        payload,
-      });
-    } catch (error) {
-      dispatch({
-        type: "AUTH_ERROR",
-      });
-    }
-  };
-
-  useEffect(() => {
-    checkUser();
-  }, []);
   return (
     <div>
       <UserContextProvider>

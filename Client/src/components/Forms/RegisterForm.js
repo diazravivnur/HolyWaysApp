@@ -6,12 +6,12 @@ function RegisterForm(props) {
   const { switcher } = props;
   const [, dispatch] = useContext(UserContext);
   const [form, setForm] = useState({
-    nama: "",
+    name: "",
     email: "",
     password: "",
   });
 
-  const { nama, email, password } = form;
+  const { name, email, password } = form;
 
   const onChange = (e) => {
     setForm({
@@ -33,7 +33,7 @@ function RegisterForm(props) {
         JSON.stringify(form),
         config
       );
-
+      console.log(response);
       dispatch({
         type: "REGISTER_SUCCESS",
         payload: response.data.data.user,
@@ -52,12 +52,12 @@ function RegisterForm(props) {
           <div className="card-body p-2">
             <div className="form-group">
               <input
-                value={nama}
+                value={name}
                 onChange={(e) => onChange(e)}
                 type="text"
                 className="form-control"
-                name="nama"
-                placeholder="nama"
+                name="name"
+                placeholder="name"
               />
             </div>
             <div className="form-group">

@@ -42,3 +42,11 @@ export const UserContextProvider = ({ children }) => {
     </UserContext.Provider>
   );
 };
+
+object {
+  FirstName: "sammy",
+  LastName : "simorangkir",
+  Age : 28,
+  Location : "Unknown",
+
+}
