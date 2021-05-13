@@ -1,16 +1,16 @@
-import style from "./information1.module.css";
+import "../Hero1/information1.css";
 
 function Information1() {
   return (
     <div className="red-box">
-      <div className={style.header}>
+      <div className="header1">
         <p>
           {" "}
           While you are still standing, try to reach out to the people who are
           falling.
         </p>
       </div>
-      <div className={style.paragraph}>
+      <div className="paragraph">
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -18,7 +18,7 @@ function Information1() {
         </p>
       </div>
       <div>
-        <button type="button" className={style.button}>
+        <button type="button" className="button">
           Donate Now
         </button>
       </div>
@@ -26,7 +26,7 @@ function Information1() {
         <img
           src="/information1.svg"
           alt="information1-holyways"
-          className={style.picture1}
+          className="picture1"
         />
       </div>
     </div>

@@ -1,9 +1,8 @@
-.header {
-  position: absolute;
-  width: 717px;
-  height: 174px;
+.header1 {
+  color: ghostwhite;
+  width: 545px;
+  height: 100px;
   left: 165px;
-  top: 151px;
 
   font-family: Product Sans;
   font-style: normal;
@@ -12,8 +11,6 @@
   line-height: 58px;
   display: flex;
   align-items: center;
-
-  color: #e8e8e8;
 }
 
 .paragraph {

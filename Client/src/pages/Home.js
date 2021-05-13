@@ -1,6 +1,6 @@
-import Card from "../components/Card";
-import Information1 from "../components/Information1";
-import Information2 from "../components/Information2";
+import Card from "../components/Card/Card";
+import Information1 from "../components/Hero1/Information1";
+import Information2 from "../components/Hero2/Information2";
 import "bootstrap/dist/css/bootstrap.min.css";
 import pict1 from "../img/pict1.svg";
 import pict2 from "../img/pict2.svg";

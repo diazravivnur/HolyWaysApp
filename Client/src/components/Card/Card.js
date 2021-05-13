@@ -1,8 +1,8 @@
 import { Card } from "react-bootstrap";
-import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Progress } from "reactstrap";
 import { Link } from "react-router-dom";
+import "./Card.css";
 
 const card = (props) => {
   return (
@@ -15,23 +15,20 @@ const card = (props) => {
           <Progress color="danger" value={40} />
           <Card.Text className="donate-nominal">
             {props.Text}{" "}
-            <Button variant="danger" className="btn-detail-donate">
-              <Link
-                className="text-link"
-                to={{
-                  pathname: `/detail/${props.id}`,
-                  state: {
-                    Img: props.Img,
-                    Title: props.Title,
-                    Paragraph: props.Paragraph,
-                    Text: props.Text,
-                  },
-                }}
-              >
-                {" "}
-                Donate{" "}
-              </Link>
-            </Button>
+            <Link
+              className="btns"
+              to={{
+                pathname: `/detail/${props.id}`,
+                state: {
+                  Img: props.Img,
+                  Title: props.Title,
+                  Paragraph: props.Paragraph,
+                  Text: props.Text,
+                },
+              }}
+            >
+              <button> Donate </button>
+            </Link>
           </Card.Text>
         </Card.Body>
       </Card>

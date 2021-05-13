@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { UserContext } from "../contexts/userContext";
+import { NavDropdown } from "react-bootstrap";
 
 import LoginForm from "./Forms/LoginForm";
 import RegisterForm from "./Forms/RegisterForm";
@@ -13,8 +14,7 @@ const Navbar = () => {
   const [showLogin, setShowLogin] = useState(false);
   const isLogin = location?.state && location?.state?.isLogin;
   const [showRegister, setShowRegister] = useState(false);
-
-  let history = useHistory();
+  const router = useHistory();
 
   useEffect(() => {
     if (!state.isLogin) {
@@ -62,24 +62,56 @@ const Navbar = () => {
           <img src="/Icon.svg" alt="icon-holyways" className="icon" />
         </Link>
         <div className="button-login-register">
-          {!state.isLogin} ? (
-          <button onClick={handleOpenModalLogin} className="btn-login">
-            Login
-          </button>
-          <button onClick={handleOpenModalRegister} className="btn-register">
-            Register
-          </button>
-          ): (
-          <>
-            <span className="mt-1 mr-2">Hai, {state?.user?.name}</span>
-            <button
-              onClick={handleLogout}
-              className="btn-sm py-1 btn-danger mr-2"
+          {!state.isLogin ? (
+            <>
+              {" "}
+              <button onClick={handleOpenModalLogin} className="btn-login">
+                Login
+              </button>{" "}
+              <button
+                onClick={handleOpenModalRegister}
+                className="btn-register"
+              >
+                Register
+              </button>
+            </>
+          ) : (
+            <NavDropdown
+              title={
+                <div className="pull-left">
+                  <img
+                    className="thumbnail-image"
+                    src={"/avatar.svg"}
+                    alt="user pic"
+                  />
+                </div>
+              }
             >
-              Logout
-            </button>
-          </>
-          )
+              <ul>
+                <li>
+                  <NavDropdown.Item onClick={() => router.push("/profile")}>
+                    <div>Profile</div>
+                  </NavDropdown.Item>
+                </li>
+              </ul>
+
+              <li>
+                {" "}
+                <NavDropdown.Item onClick={() => router.push("/raisefund")}>
+                  <div>Raise Fund</div>
+                </NavDropdown.Item>
+              </li>
+
+              <NavDropdown.Divider />
+
+              <li>
+                {" "}
+                <NavDropdown.Item href="#action/3.4" onClick={handleLogout}>
+                  <div className="modal-logout-link">Logout</div>
+                </NavDropdown.Item>
+              </li>
+            </NavDropdown>
+          )}
         </div>
       </div>
       <FormModal

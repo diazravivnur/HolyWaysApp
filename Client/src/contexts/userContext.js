@@ -43,10 +43,3 @@ export const UserContextProvider = ({ children }) => {
   );
 };
 
-object {
-  FirstName: "sammy",
-  LastName : "simorangkir",
-  Age : 28,
-  Location : "Unknown",
-
-}
